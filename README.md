@@ -48,4 +48,4 @@ With the manage method, possibilites are endless! Enjoy it!
 
 ### Caution
 
-Be careful with the method Vm.Lister.backup! as it will shutdown your VM and restart it after the export. I needed that to export the appliance, and then in case of failure I can import in any other VirtualBox.. If you have a better option, please let me know :)
+Be careful with the method VmLister.backup! as it will shutdown your VM and restart it after the export. I needed that to export the appliance, and then in case of failure I can import in any other VirtualBox.. If you have a better option, please let me know :)
