@@ -44,7 +44,7 @@ Get the IP of your running VMs (need Guest Additions installed in your VMs)
 	VBoxManage guestproperty enumerate "vm2" | grep IP | cut -d , -f 2 | cut -d ' ' -f 3
 	=>192.168.1.100
 
-With the manage command, possibilites are endless! Enjoy it!
+With the manage method, possibilites are endless! Enjoy it!
 
 ### Caution
 
