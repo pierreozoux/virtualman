@@ -11,23 +11,23 @@ Install the gem
 
 Fire IRB
 
-  $ irb
+	$ irb
 
 Play with your VMs :
 
-  irb> vms=VmLister.new
+	irb> vms=VmLister.new
 
-  irb> vms.populate!
+	irb> vms.populate!
 
-  => ["\"vm1"", "\"vm2\"", "\"vm3\""]
+	=> ["\"vm1"", "\"vm2\"", "\"vm3\""]
 
-  irb> vms.running?
+	irb> vms.running?
 
-  => ["\"vm2\""]
+	=> ["\"vm2\""]
 
-  irb> vms.running?.backup! "/path/to/your/backup/folder"
+	irb> vms.running?.backup! "/path/to/your/backup/folder"
 
-  VBoxManage controlvm "vm2" poweroff
+	VBoxManage controlvm "vm2" poweroff
 	0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
 
 	VBoxManage export "vm2" -o /path/to/your/folder/vm2_20120816T1202.ova
