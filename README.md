@@ -38,6 +38,7 @@ Play with your VMs :
 	VM "vm2" has been successfully started.
 
 Get the IP of your running VMs (need Guest Additions installed in your VMs)
+
 	irb> vms.running?.manage "guestproperty enumerate", "| grep IP | cut -d , -f 2 | cut -d ' ' -f 3"
 
 	VBoxManage guestproperty enumerate "vm2" | grep IP | cut -d , -f 2 | cut -d ' ' -f 3
