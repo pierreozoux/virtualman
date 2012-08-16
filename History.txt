@@ -1,0 +1,6 @@
+=== 0.0.1 2012-08-16
+
+ * 1 bug fix :
+
+  * VmLister.manage was calling an old Vm method (act) which didn't exist anymore.
+
