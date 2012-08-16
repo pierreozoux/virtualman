@@ -73,11 +73,8 @@ class VmLister < Array
   def manage(action, *param, &block)
     self.each do |vm|
       block_param = block.call(vm.name) if block_given?
-      
-      puts "action: #{action} for the VM: #{vm.name} with options :"
-      puts "  #{param} #{block_param}"
 
-      vm.act(action, param, block_param)
+      vm.manage(action, param, block_param)
     end
   end
 

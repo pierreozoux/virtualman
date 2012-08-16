@@ -5,27 +5,40 @@ A simple way to manage your Virtual Box appliances.
 
 ### Usage
 
-Install the gem
+Put this in your script (virtual.rb)
+	
+	require 'virtualman'
+
+	vms=VmLister.new
+	vms.populate!
+
+	puts "List of Vms"
+	vms.list
+
+	puts "List of running Vms"
+	vms.running?.list
+
+	#Get the IP of your running VMs (need Guest Additions installed in your VMs)
+
+	vms.running?.manage "guestproperty enumerate", "| grep IP | cut -d , -f 2 | cut -d ' ' -f 3"
+
+	vms.running?.backup! "/path/to/your/backup/folder"
+
+And enjoy it!
 
 	$ gem install virtualman
+	$ ruby virtual.rb
 
-Fire IRB
+	List of Vms
+	"vm1"
+	"vm2"
+	"vm3"
 
-	$ irb
+	List of running Vms
+	"vm2\"
 
-Play with your VMs :
-
-	irb> vms=VmLister.new
-
-	irb> vms.populate!
-
-	=> ["\"vm1"", "\"vm2\"", "\"vm3\""]
-
-	irb> vms.running?
-
-	=> ["\"vm2\""]
-
-	irb> vms.running?.backup! "/path/to/your/backup/folder"
+	VBoxManage guestproperty enumerate "vm2" | grep IP | cut -d , -f 2 | cut -d ' ' -f 3
+	192.168.1.100
 
 	VBoxManage controlvm "vm2" poweroff
 	0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
@@ -36,13 +49,6 @@ Play with your VMs :
 	VBoxManage startvm "vm2" --type headless
 	Waiting for VM "vm2" to power on...
 	VM "vm2" has been successfully started.
-
-Get the IP of your running VMs (need Guest Additions installed in your VMs)
-
-	irb> vms.running?.manage "guestproperty enumerate", "| grep IP | cut -d , -f 2 | cut -d ' ' -f 3"
-
-	VBoxManage guestproperty enumerate "vm2" | grep IP | cut -d , -f 2 | cut -d ' ' -f 3
-	=>192.168.1.100
 
 With the manage method, possibilites are endless! Enjoy it!
 
