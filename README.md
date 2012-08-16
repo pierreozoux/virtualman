@@ -1,7 +1,7 @@
 virtualman
 ==========
 
-A sinmple way to manage your Virtual Box appliances.
+A simple way to manage your Virtual Box appliances.
 
 ### Usage
 
