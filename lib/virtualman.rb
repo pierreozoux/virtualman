@@ -26,16 +26,13 @@ class Vm
     puts `VBoxManage #{action} #{@name} #{param.join(" ")}`
   end
 
-  # A method to automatically Export a VM as an "importable" appliance
-  # /!\ be careful, this operation requires to poweroff the VM.
-  def backup!(folder)
-    self.manage("controlvm","poweroff")
-
-    filename = Time.now().strftime("#{@name.delete "\""}_%Y%m%dT%H%M")
-
-    self.manage("export","-o #{folder}/#{filename}.ova")
-
-    self.manage("startvm", "--type headless")
+  # A method to stop properly a vm
+  # It assumes that you have the name of the VM on your personnal hosts file or DNS
+  # It can be modified to use GuestAdditions instead
+  def stop!
+    if self.running?
+      `ssh root@#{vm.name.delete "\""} "shutdown -h now"`
+    end
   end
 end
 
@@ -80,6 +77,13 @@ class VmLister < Array
 
   # A method to automatically export the list of VMs
   def backup!(folder)
-    self.each {|vm| vm.backup!(folder)}
+    self.each {|vm| vm.stop!}
+
+    self.each do |vm|
+      filename = Time.now().strftime("#{vm.name.delete "\""}_%Y%m%dT%H%M")
+      vm..manage("export","-o #{folder}/#{filename}.ova")
+    end
+
+    self.each {|vm| vm.manage("startvm", "--type headless")}
   end
 end

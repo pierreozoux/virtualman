@@ -1,3 +1,15 @@
+=== 1.0.0 2012-08-24
+
+* remove the function Vm.backup!
+It was creating crashes... Thanks to the stability of VirtualBox..
+Now the strategy is to shutdown all the VMs and then export each one
+
+* add Vm.stop!
+Will ssh to each VMs (need to have your hosts file configured accordingly) and launch shutdown command
+
+* changed VmLister.backup!
+To avoid the VirtualBox crashes mentionned above.
+
 === 0.0.1 2012-08-16
 
  * 1 bug fix :
