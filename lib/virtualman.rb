@@ -30,9 +30,16 @@ class Vm
   # It assumes that you have the name of the VM on your personnal hosts file or DNS
   # It can be modified to use GuestAdditions instead
   def stop!
+    $stdout.sync = true
     if self.running?
-      `ssh root@#{vm.name.delete "\""} "shutdown -h now"`
+      `ssh root@#{self.name.delete "\""} "shutdown -h now"`
+      puts "Waiting for complete shutdown of #{self.name}"
+      while self.running?
+        print "."
+        sleep (1)
+      end
     end
+
   end
 end
 
@@ -78,10 +85,12 @@ class VmLister < Array
   # A method to automatically export the list of VMs
   def backup!(folder)
     self.each {|vm| vm.stop!}
+    sleep (5)
 
     self.each do |vm|
       filename = Time.now().strftime("#{vm.name.delete "\""}_%Y%m%dT%H%M")
-      vm..manage("export","-o #{folder}/#{filename}.ova")
+      vm.manage("export","-o #{folder}/#{filename}.ova")
+      sleep(5)
     end
 
     self.each {|vm| vm.manage("startvm", "--type headless")}
