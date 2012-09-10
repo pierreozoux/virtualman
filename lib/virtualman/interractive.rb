@@ -8,7 +8,7 @@ def choosed_vm(array,vm_name)
 	end
 end
 
-def choose options *attribute_to_print
+def choose options, *attribute_to_print
 	options_array = load_conf[options]
 	if attribute_to_print.empty?
 		return Menu.unic_run(options_array)
