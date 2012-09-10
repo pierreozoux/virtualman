@@ -20,7 +20,7 @@ Put this in your script (virtual.rb)
 
 	#Get the IP of your running VMs (need Guest Additions installed in your VMs)
 
-	vms.running?.manage "guestproperty enumerate", "| grep IP | cut -d , -f 2 | cut -d ' ' -f 3"
+	vms.ip
 
 	vms.running?.backup! "/path/to/your/backup/folder"
 
@@ -35,7 +35,7 @@ And enjoy it!
 	"vm3"
 
 	List of running Vms
-	"vm2\"
+	"vm2"
 
 	VBoxManage guestproperty enumerate "vm2" | grep IP | cut -d , -f 2 | cut -d ' ' -f 3
 	192.168.1.100

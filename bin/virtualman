@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+####Required
+require 'virtualman'
+
+menu = ["clone","cook","ssh_cloned","exit"]
+
+puts "----VirtualMan----"
+puts "Please select an action to do with your VM."
+
+choice = Menu.unic_run(menu)
+
+while choice != "exit"
+	send(choice)
+	puts "----VirtualMan----"
+	puts "Please select an action to do with your VM."
+	choice = Menu.unic_run(menu)
+end
+
+puts "Thank you come again!"

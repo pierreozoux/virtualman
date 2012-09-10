@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+####Required
+require 'virtualman'
+
+source_vms = load_conf["source_vms"]
+
+cloned_vm = clone_vm(source_vms)
+
+start_vm(cloned_vm)
+
+record_conf(cloned_vm)

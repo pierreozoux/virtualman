@@ -1,3 +1,7 @@
+=== 1.1.0 2012-09-06
+
+* Added the method ip to the class Vm
+
 === 1.0.0 2012-08-24
 
 * remove the function Vm.backup!

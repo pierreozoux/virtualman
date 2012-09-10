@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+####Required
+require 'virtualman'
+
+cloned_vms = load_conf["cloned_vms"]
+
+cloned_vms.each do |vm|
+	list << vm["name"]
+end
+
+puts "----Clone_Cooking----"
+puts "Which VM do you want to cook?"
+
+chocie = Menu.unic_run(list)
+
+selected_vm = Vm.new(choice)
+
+if !selected_vm.running?
+	puts "#{selected_vm.name} is not running..."
+	start_vm(selected_vm)
+	if !selected_vm.running?
+		puts "As you want.."
+		return 1
+	end
+end
+
+cmd = "ssh #{user}@#{selected_vm.ip}"
+exec (cmd)
+
+puts "Thanks!"
