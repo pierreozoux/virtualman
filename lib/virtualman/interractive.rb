@@ -94,7 +94,7 @@ def cook
 	user="root"
 
 	if start_vm(selected_vm)
-		cmd = "ssh #{user}@#{selected_vm.ip} '/usr/local/bin/chef-solo -j #{role_path}#{role}.json -r #{cookbook_path}'"
+		cmd = "ssh #{user}@#{selected_vm.ip} '/usr/local/bin/chef-solo -j #{role_path}#{role}.json --json-attributes -r #{cookbook_path}'"
 		p cmd
 		system(cmd)
 	end
