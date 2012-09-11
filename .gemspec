@@ -1,11 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'virtualman'
-  s.version     = '1.1.0'
-  s.executables << 'clone_vm'
+  s.version     = '1.1.1'
   s.executables << 'virtualman'
-  s.executables << 'ssh_cloned'
-  s.executables << 'clone_cooking'
-  s.date        = '2012-09-06'
+  s.date        = '2012-09-11'
   s.summary     = "A simple way to manage your Virtual Machines under VirtualBox."
   s.description = "It is for writing scripts for UNIX-like systems to handle your VirtualBox appliance."
   s.authors     = ["Pierre Ozoux"]
@@ -17,7 +14,6 @@ Gem::Specification.new do |s|
     "lib/virtualman/menu.rb",
     "lib/virtualman/vm.rb",
     "lib/virtualman/vmlister.rb",
-    "bin/clone_vm",
     "bin/virtualman"
   ]
   s.homepage    =
