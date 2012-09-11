@@ -1,4 +1,4 @@
-#require 'lib/virtualman'
+require 'open3'
 
 def choosed_option(array,choice,attribute_to_check)
 	array.each_with_index do |option,index|
@@ -96,7 +96,7 @@ def cook
 	if start_vm(selected_vm)
 		cmd = "ssh #{user}@#{selected_vm.ip} '/usr/local/bin/chef-solo -j #{role_path}#{role}.json -r #{cookbook_path}'"
 		p cmd
-		`#{cmd}`
+		system(cmd)
 	end
 
 	puts "Thanks!"
