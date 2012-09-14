@@ -1,6 +1,6 @@
 require 'yaml'
 
-CONFIG_FILE = File.join(ENV['HOME'],'.clone_vm.rc.yaml') 
+CONFIG_FILE = File.join(ENV['HOME'],'.virtualman.rc.yaml') 
 
 def load_conf
 	if File.exists? CONFIG_FILE
