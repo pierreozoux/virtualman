@@ -24,14 +24,30 @@ def load_conf
 	return config_options
 end
 
-def record_conf(vm_cloned)
+def record_conf(vm_cloned, *param)
 	conf = load_conf()
-	if conf["cloned_vms"]
-		conf["cloned_vms"] << {"name" => vm_cloned.name}
+
+	if param[0] == "delete"
+		verb = "deleted"
+		p conf["cloned_vms"]
+		p conf["cloned_vms"].class
+		p conf["cloned_vms"].reject{|vm| vm == {"name" => vm_cloned.name} }
+
+		conf["cloned_vms"].reject!{|vm| vm == {"name" => vm_cloned.name} }
+
+		p conf["cloned_vms"]
+
 	else
-		conf.merge!({"cloned_vms" => {"name" => vm_cloned.name}})
+		verb = "saved"
+
+		if conf["cloned_vms"]
+			conf["cloned_vms"] << {"name" => vm_cloned.name}
+		else
+			conf.merge!({"cloned_vms" => {"name" => vm_cloned.name}})
+		end
 	end
 
 	File.open(CONFIG_FILE, "w") {|f| f.write(conf.to_yaml) }
-	puts "VM #{vm_cloned.name} saved in your configuration file"
+	puts "VM #{vm_cloned.name} #{verb} in your configuration file"
+
 end

@@ -3,7 +3,7 @@
 ####Required
 require 'virtualman'
 
-menu = ["clone","cook","ssh_cloned","exit"]
+menu = ["clone","cook","ssh_cloned","delete_clone","exit"]
 
 puts "----VirtualMan----"
 puts "Please select an action to do with your VM."

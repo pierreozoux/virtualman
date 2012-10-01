@@ -122,3 +122,25 @@ def ssh_cloned
 		exec (cmd)
 	end	
 end
+
+def delete_clone
+	puts "----Delete a cloned VM----"
+	puts "Which VM delete?"
+
+	vm_choice = choose "cloned_vms", "name"
+
+	selected_vm = Vm.new(vm_choice["name"])
+
+	puts "!!YOU ARE ABOUT TO DELETE PEMANENTLY DELETE #{vm_choice["name"]}!!"
+	puts "Are you sure? (yes/[no])"
+
+	choice = Menu.ask
+
+	if choice == "yes"
+		selected_vm.stop!
+
+		selected_vm.manage("unregistervm","--delete")
+
+		record_conf(selected_vm, "delete")
+	end
+end

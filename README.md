@@ -5,6 +5,25 @@ A simple way to manage your Virtual Box appliances.
 
 ### Usage
 
+(NEW) From command line!
+
+	$ virtualman
+
+Config file in your home path : (.virtualman.rc.yaml)
+	source_vm:
+	- name: 			Debian
+	  snapshot: 	ready to clone!
+	- name: 			Gentoo
+	  snapshot: 	almost ready
+	role_path: http://path/to/your/role/fodler
+	cookbook_path: http://path/to/your/cookbooks.tar.gz
+	roles:
+	- devtest
+	- jenkins
+	- build_pkg
+
+---OR---
+
 Put this in your script (virtual.rb)
 	
 	require 'virtualman'
