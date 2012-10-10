@@ -29,14 +29,7 @@ def record_conf(vm_cloned, *param)
 
 	if param[0] == "delete"
 		verb = "deleted"
-		p conf["cloned_vms"]
-		p conf["cloned_vms"].class
-		p conf["cloned_vms"].reject{|vm| vm == {"name" => vm_cloned.name} }
-
 		conf["cloned_vms"].reject!{|vm| vm == {"name" => vm_cloned.name} }
-
-		p conf["cloned_vms"]
-
 	else
 		verb = "saved"
 

@@ -32,12 +32,13 @@ class Vm
   def stop!
     $stdout.sync = true
     if self.running?
-      `ssh root@#{self.name.delete "\""} "shutdown -h now"`
+      `ssh root@#{self.ip} "shutdown -h now"`
       puts "Waiting for complete shutdown of #{self.name}"
       while self.running?
         print "."
         sleep (1)
       end
+      sleep (5)
     end
 
   end

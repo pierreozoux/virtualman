@@ -1,3 +1,8 @@
+=== 1.1.7 2012-10-10
+
+* Removed debug output from delete_clone -> record_conf
+* Corrected a bug in Vm.stop! that was resolving a name and not an ip..
+
 === 1.1.6 2012-10-01
 
 * Added the possibility to delete a vm from the interractive menu
