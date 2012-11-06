@@ -1,3 +1,6 @@
+=== 1.1.9 2012-11-06
+* corrected a typo in bootify
+
 === 1.1.8 2012-11-02
 * Improved the conf file (removed the "" around the names)
 * added exit to all sub-menu
