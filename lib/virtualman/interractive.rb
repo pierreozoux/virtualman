@@ -220,7 +220,7 @@ include Configuration
 
 		`sudo cp #{tmp_file} #{path};sudo launchctl load #{path}#{plist_filename}`
 
-		puts "#{vmnme} added to your boot sequence."
+		puts "#{vmname} added to your boot sequence."
 	end
 
 end
