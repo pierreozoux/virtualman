@@ -28,6 +28,7 @@ This interactive mode allows you to manage your VM in an easy way. Configure it 
 
 #### Config file 
 in your home path : (.virtualman.rc.yaml)
+
 	source_vm:
 	- name: 			Debian
 	  snapshot: 	ready to clone!
@@ -75,3 +76,4 @@ Be careful with the method VmLister.backup! as it will shutdown your VM and rest
 * Configure a White list (of all VM) for clone.
 * Configure a black list (of all VM) for ssh.
 * Add the possibility to use knife or chef-server
+* Record scripts (with a monkey patch of exec command?)
