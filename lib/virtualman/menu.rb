@@ -53,6 +53,4 @@ module Menu
     }
     print "\nSpecify your choice\nChoose: "
   end
-
-  
 end

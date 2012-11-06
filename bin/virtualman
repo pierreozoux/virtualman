@@ -2,19 +2,17 @@
 
 ####Required
 require 'virtualman'
+include Interractive
 
-menu = ["clone","cook","ssh_cloned","delete_clone","exit"]
+menu = ["clone","cook","ssh","add","delete","bootify","exit"]
 
-puts "----VirtualMan----"
-puts "Please select an action to do with your VM."
-
-choice = Menu.unic_run(menu)
+choice = "0"
 
 while choice != "exit"
-	send(choice)
 	puts "----VirtualMan----"
 	puts "Please select an action to do with your VM."
 	choice = Menu.unic_run(menu)
+	Interractive.send(choice)
 end
 
 puts "Thank you come again!"

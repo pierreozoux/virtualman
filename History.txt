@@ -1,3 +1,10 @@
+=== 1.1.8 2012-11-02
+* Improved the conf file (removed the "" around the names)
+* added exit to all sub-menu
+* added possibility to install a new VM from OVA file
+* added the possibility to add a VM to boot sequence (Mac OS)
+* added modules in the code
+
 === 1.1.7 2012-10-10
 
 * Removed debug output from delete_clone -> record_conf

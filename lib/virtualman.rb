@@ -1,5 +1,5 @@
 require 'virtualman/menu'
 require 'virtualman/vm'
 require 'virtualman/vmlister'
-require 'virtualman/conf'
+require 'virtualman/configuration'
 require 'virtualman/interractive'
