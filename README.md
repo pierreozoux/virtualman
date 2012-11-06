@@ -76,3 +76,4 @@ Be careful with the method VmLister.backup! as it will shutdown your VM and rest
 * Configure a White list (of all VM) for clone.
 * Configure a black list (of all VM) for ssh.
 * Add the possibility to use knife or chef-server
+* Record scripts (with a monkey patch of exec command?)
