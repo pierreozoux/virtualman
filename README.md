@@ -28,6 +28,7 @@ This interactive mode allows you to manage your VM in an easy way. Configure it 
 
 #### Config file 
 in your home path : (.virtualman.rc.yaml)
+
 	source_vm:
 	- name: 			Debian
 	  snapshot: 	ready to clone!
