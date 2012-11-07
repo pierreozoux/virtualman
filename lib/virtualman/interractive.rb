@@ -165,8 +165,10 @@ include Configuration
 		p cmd
 		system(cmd)
 
-		added_vm = Vm.new(File.basename("#{path}",".*"))
-		record_conf(added_vm)
+		if $?.exitstatus == 0
+			added_vm = Vm.new(File.basename("#{path}",".*"))
+			record_conf(added_vm)
+		end
 	end
 
 	def bootify
