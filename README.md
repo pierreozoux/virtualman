@@ -5,6 +5,10 @@ virtualman
 
 A simple way to manage your Virtual Box appliances.
 
+## Install it!
+
+	$ gem install virtualman
+
 ## Usage
 
 ### From command line!
