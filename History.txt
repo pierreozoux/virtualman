@@ -1,3 +1,14 @@
+=== 2.0.0 2012-11-15
+* corrected issue 2 - check the path in add function
+* moved annex function from Interactive.rb to helper.rb
+* changed the behavior of bootify to be more "VB" compliant
+* Changed the way to call classes
+* improved spec for vm and vmlister
+* change the behaviour of record:conf
+* add two methods for Configuration : add and delte a cloned vm
+* change the organisation of the gem
+* Did all the specs
+
 === 1.1.9 2012-11-06
 * corrected a typo in bootify
 
@@ -15,7 +26,7 @@
 
 === 1.1.6 2012-10-01
 
-* Added the possibility to delete a vm from the interractive menu
+* Added the possibility to delete a vm from the Interactive menu
 
 === 1.1.5 2012-09-14
 
@@ -40,7 +51,7 @@
 === 1.1.0 2012-09-06
 
 * Added the method ip to the class Vm
-* Added the interractive mode
+* Added the Interactive mode
 
 === 1.0.0 2012-08-24
 

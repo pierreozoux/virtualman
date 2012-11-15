@@ -23,34 +23,41 @@
 
 #Forked from https://github.com/cldwalker/menu
 
-module Menu
-  extend self
+module Virtualman
+  module Interactive
+    module Menu
+      extend self
 
-  def ask
-    $stdin.reopen '/dev/tty'
-    $stdin.gets.chomp
-  end
+      def ask
+        $stdin.reopen '/dev/tty'
+        $stdin.gets.chomp
+      end
 
-  def unic_run(array)
-    unic_prompt(array)
-    answer = ask
-    return unic_answer(array, answer)
-  end
+      def unic_prompt(lines)
+        ljust_size = lines.size.to_s.size + 1
+        lines.each_with_index {|obj,i|
+          puts "#{i+1}.".ljust(ljust_size) + " " +obj
+        }
+        print "\nSpecify your choice\nChoose: "
+      end
 
-  def unic_answer(array, input)
-    if input[/(\d+)/]
-      index = $1.to_i - 1
-      return array[index] if array[index]
-    else
-      abort("`#{input}' is an invalid choice.")
+      def unic_answer(array, input)
+        if input[/(\d+)/]
+          index = input.to_i - 1
+          if array[index]
+            return array[index] 
+          end
+        end
+        
+        Kernel.abort "#{input} is an invalid choice."
+      end
+
+      def unic_run(array)
+        unic_prompt(array)
+        answer = ask
+        return unic_answer(array, answer)
+      end
+
     end
-  end
-
-  def unic_prompt(lines)
-    ljust_size = lines.size.to_s.size + 1
-    lines.each_with_index {|obj,i|
-      puts "#{i+1}.".ljust(ljust_size) + " " +obj
-    }
-    print "\nSpecify your choice\nChoose: "
   end
 end

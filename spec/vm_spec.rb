@@ -1,33 +1,32 @@
 require 'spec_helper'
 
-describe Vm do
-	before :each do
-		@vm_test = Vm.new "vm_test"
+describe Virtualman::Vm do
 
-		@vm_running = double('vm_running')
-		@vm_running.stub(:running?).and_return(true)
-
-		@vm_not_running = double('vm_not_running')
-		@vm_not_running.stub(:running?).and_return(false)
+	before do
+		@vm_test = Virtualman::Vm.new "vm test"
+		
+		#$stdout = StringIO.new	
 	end
 
 	describe "#new" do
 		it "takes one parameter and return a Vm object" do
-			@vm_test.should be_an_instance_of Vm
+			@vm_test.should be_an_instance_of Virtualman::Vm
 		end
 	end
 
 	describe "#name" do
 		it "returns the correct name" do
-			@vm_test.name.should eql "vm_test"
+			@vm_test.name.should eql "vm test"
 		end
 	end
 
-	describe "#running" do
-		it "returns the correct status" do
-			@vm_running.running?.should eql true
-			@vm_not_running.running?.should eql false
+	describe "#manage" do
+		it "returns a well formatted command" do
+			@vm_test.manage("guestproperty enumerate").strip.should eql "VBoxManage guestproperty enumerate \"vm test\"  2>&1"
+			@vm_test.manage("modifyvm","--test1","--test2").should eql "VBoxManage modifyvm \"vm test\" --test1 --test2 2>&1"
+			Kernel.should_receive(:abort)
+			@vm_test.manage("abort")
 		end
 	end
+
 end
-
