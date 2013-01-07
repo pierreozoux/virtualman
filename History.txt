@@ -1,3 +1,6 @@
+=== 2.0.1 2013-01-07
+* fix a bug with spaced names in vm for cloning
+
 === 2.0.0 2012-11-15
 * corrected issue 2 - check the path in add function
 * moved annex function from Interactive.rb to helper.rb

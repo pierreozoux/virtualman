@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'virtualman'
-  s.version     = '2.0.0'
+  s.version     = '2.0.1'
   s.executables << 'virtualman'
-  s.date        = '2012-11-15'
+  s.date        = '2013-01-07'
   s.summary     = "A simple way to manage your Virtual Machines under VirtualBox."
   s.description = "An interactive tool, and library to manage quickly your VMs"
   s.authors     = ["Pierre Ozoux"]

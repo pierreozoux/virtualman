@@ -38,7 +38,7 @@ module Virtualman
         puts "Which VM do you want to clone?"
 
         vm_choice = choose "source_vms"
-        vm_to_clone = Vm.new("\"#{vm_choice["name"]}\"")
+        vm_to_clone = Vm.new("#{vm_choice["name"]}")
 
         puts "How do you want to name your freshly spawned VM?"
         vm_name = Menu.ask

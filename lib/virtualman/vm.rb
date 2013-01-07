@@ -19,7 +19,10 @@ module Virtualman
     # *param is a list of options
     def manage(action, *param)
       #puts "VBoxManage #{action} #{@name} #{param.join(" ")}"
+      p @name
+      p "VBoxManage #{action} \"#{@name}\" #{param.join(" ")}"
       output = `VBoxManage #{action} \"#{@name}\" #{param.join(" ")} 2>&1`
+
       if $?.exitstatus != 0
         Kernel.abort(output)
       else
