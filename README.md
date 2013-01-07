@@ -5,6 +5,8 @@ virtualman
 
 A simple way to manage your Virtual Box appliances.
 
+(Tested on MacOS but no other platform, if you want to test and correct the code for your platform, it's up to you!)
+
 ## Install it!
 
 	$ gem install virtualman
